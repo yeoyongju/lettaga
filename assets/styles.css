@@ -171,14 +171,46 @@ html[dir="rtl"] .country-menu{right:auto;left:0}
 .cols-3{grid-template-columns:repeat(3,1fr)}
 .cols-4{grid-template-columns:repeat(4,1fr)}
 .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;
-  box-shadow:var(--shadow);transition:.2s}
+  box-shadow:var(--shadow);transition:.2s;position:relative}
+.country-tag{position:absolute;top:16px;right:16px;display:inline-flex;align-items:center;gap:4px;
+  font-size:.66rem;font-weight:800;letter-spacing:.02em;color:var(--blue-d);
+  background:var(--blue-l);padding:4px 9px;border-radius:999px;white-space:nowrap}
 .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:#D4E0EE}
 .card .ic{width:50px;height:50px;border-radius:12px;display:grid;place-items:center;
   background:var(--blue-l);color:var(--blue-d);margin-bottom:16px;font-size:1.5rem;font-weight:800}
+.ic svg{width:26px;height:26px;display:block}
+.pillar .ic svg{width:26px;height:26px}
+.stat .num svg{width:44px;height:44px;display:block;margin:0 auto}
 .card h3{margin-bottom:8px}
 .card p{color:var(--muted);font-size:.97rem;margin:0}
 .tcode{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.05em;color:var(--blue);
   background:var(--blue-l);padding:3px 9px;border-radius:6px;margin-bottom:10px}
+
+/* feature card demo media (animated GIF) */
+.card.has-media{padding-top:0;overflow:hidden}
+.card .feat-media{margin:0 -28px 18px;border-bottom:1px solid var(--line);
+  background:var(--blue-l);line-height:0}
+.card .feat-media img{width:100%;height:auto;display:block}
+
+/* spotlight feature row — media-forward (Zoom / Linear / Stripe style) */
+.feature-spotlight{display:grid;grid-template-columns:1.08fr .92fr;gap:48px;
+  align-items:center;margin:34px 0 10px}
+.feature-spotlight + .feature-spotlight{margin-top:64px}
+.feature-spotlight.reverse .fs-media{order:2}
+.fs-media{border-radius:16px;overflow:hidden;box-shadow:var(--shadow-lg);
+  border:1px solid var(--line);background:var(--blue-l);line-height:0}
+.fs-media img{width:100%;height:auto;display:block}
+.fs-text .tcode{margin-bottom:14px}
+.fs-text h3{font-size:1.65rem;line-height:1.26;margin:0 0 20px;color:var(--ink)}
+.fs-list{list-style:none;padding:0;margin:0;display:grid;gap:13px}
+.fs-list li{display:flex;gap:11px;align-items:flex-start;font-weight:600;
+  color:var(--navy);font-size:1.02rem}
+.fs-list li svg{flex:0 0 auto;width:21px;height:21px;color:var(--blue-d);margin-top:1px}
+.fs-hint{margin-top:22px;font-size:.85rem;color:var(--muted)}
+.fs-text .geo{display:inline-block;margin-left:8px;font-size:.7rem;font-weight:800;letter-spacing:.02em;
+  color:var(--blue-d);background:var(--blue-l);padding:3px 9px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+@media(max-width:860px){.feature-spotlight{grid-template-columns:1fr;gap:24px}
+  .feature-spotlight.reverse .fs-media{order:0}}
 
 /* market (country) switch — pricing & products */
 .market-switch{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:#fff}

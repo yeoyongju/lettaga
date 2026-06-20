@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lettaga — Feature GIFs preview</title>
+<style>
+  :root{--blue:#1B84FF;--ink:#3A4752;--soft:#768B9E;--line:#e3e9f2;--bg:#eef5f9;--card:#fff}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);padding:40px 20px}
+  .wrap{max-width:1080px;margin:0 auto}
+  h1{font-size:24px;margin:0 0 4px}
+  .sub{color:var(--soft);margin:0 0 28px;font-size:14px}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;
+        box-shadow:rgba(145,158,171,.12) 0 12px 24px -4px}
+  .tcode{display:inline-block;font-size:11px;font-weight:700;color:var(--blue);
+        background:#EDF5FD;padding:3px 9px;border-radius:20px;margin-bottom:10px}
+  .card img{width:100%;display:block;border-radius:10px;border:1px solid var(--line)}
+  .card h3{margin:12px 0 4px;font-size:16px}
+  .card p{margin:0;color:var(--soft);font-size:13px;line-height:1.5}
+  @media(max-width:720px){.grid{grid-template-columns:1fr}}
+</style></head>
+<body><div class="wrap">
+  <h1>Lettaga — Feature GIFs</h1>
+  <p class="sub">640×400 · ~3.6s loop · ~60&nbsp;KB each. Each loop highlights what competitors don't offer.</p>
+  <div class="grid">
+    <div class="card"><span class="tcode">T-Sync</span><img src="t-sync.gif" alt="T-Sync"><h3>Synchronisation</h3><p>Real-time sync with ACRA &amp; SSM. Every change is recorded to each entity's Register Book; changes the company filed itself are flagged for review.</p></div>
+    <div class="card"><span class="tcode">T-Link</span><img src="t-link.gif" alt="T-Link"><h3>Client Link</h3><p>Clients complete incorporation &amp; CDD themselves through one secure deep link — no login.</p></div>
+    <div class="card"><span class="tcode">T-Doc AI</span><img src="t-doc-ai.gif" alt="T-Doc AI"><h3>Document Generation</h3><p>AI auto-extracts every [[variable]] and generates the document set for many entities at once.</p></div>
+    <div class="card"><span class="tcode">T-Sign</span><img src="t-sign.gif" alt="T-Sign"><h3>e-Signature</h3><p>Built-in signing, 24/7 — no DocuSign or Adobe Sign. Signed files auto-saved to T-Drive.</p></div>
+    <div class="card"><span class="tcode">T-Drive</span><img src="t-drive.gif" alt="T-Drive"><h3>Cloud Drive</h3><p>Signed documents and filing certificates land in the right entity's drive — automatically.</p></div>
+    <div class="card"><span class="tcode">T-Filing</span><img src="t-filing.gif" alt="T-Filing"><h3>e-Filing</h3><p>Pre-filled from your task, then filed straight to ACRA &amp; SSM in one click — certificate returned.</p></div>
+  </div>
+</div></body></html>
