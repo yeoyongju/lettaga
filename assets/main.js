@@ -77,6 +77,39 @@
     document.querySelectorAll('.year').forEach(function (e) { e.textContent = y; });
   }
 
+  /* ---------- hero GIF carousel (auto-cycling product demos) ---------- */
+  function initHeroGif() {
+    var wrap = document.getElementById('heroGif');
+    if (!wrap) return;
+    var imgs = Array.prototype.slice.call(wrap.querySelectorAll('.hg-img'));
+    if (imgs.length < 2) return;
+    var label = document.getElementById('heroGifLabel');
+    var dotsBox = document.getElementById('heroGifDots');
+    var i = 0, timer = null, DELAY = 3200;
+    var dots = imgs.map(function (im, idx) {
+      var b = document.createElement('b');
+      b.addEventListener('click', function () { go(idx); restart(); });
+      if (dotsBox) dotsBox.appendChild(b);
+      return b;
+    });
+    function go(n) {
+      imgs[i].classList.remove('active'); dots[i].classList.remove('active');
+      i = (n + imgs.length) % imgs.length;
+      imgs[i].classList.add('active'); dots[i].classList.add('active');
+      if (label) label.textContent = imgs[i].getAttribute('data-label') || '';
+    }
+    function next() { go(i + 1); }
+    function restart() { if (timer) clearInterval(timer); timer = setInterval(next, DELAY); }
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    dots[0].classList.add('active');
+    if (label) label.textContent = imgs[0].getAttribute('data-label') || '';
+    if (!reduce) restart();
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) { if (timer) clearInterval(timer); }
+      else if (!reduce) restart();
+    });
+  }
+
   /* ---------- language ---------- */
   function applyLang(lang) {
     var meta = langMeta(lang);
@@ -260,6 +293,6 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    initLang(); initMarket(); initVideoSwitch(); initTrialModal(); initGauges(); initNav(); initReveal(); initYear();
+    initLang(); initMarket(); initVideoSwitch(); initHeroGif(); initTrialModal(); initGauges(); initNav(); initReveal(); initYear();
   });
 })();
